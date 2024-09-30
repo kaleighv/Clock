@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class TimeConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean continueConversion = true;
+
+        while (continueConversion) {
+            System.out.println("[1] Seconds to Minutes");
+            System.out.println("[2] Seconds to Hours");
+            System.out.println("[3] Minutes to Seconds");
+            System.out.println("[4] Minutes to Hours");
+            System.out.println("[5] Hours to Seconds");
+            System.out.println("[6] Hours to Minutes");
+            System.out.print("Choose the Conversion: ");
+            int choice = scanner.nextInt();
+
+            System.out.print("Enter the Value: ");
+            double value = scanner.nextDouble();
+            double result = 0;
+
+            switch (choice) {
+                case 1:
+                    result = value / 60;
+                    System.out.printf("Seconds to Minutes: %.1f%n", result);
+                    break;
+                case 2:
+                    result = value / 3600;
+                    System.out.printf("Seconds to Hours: %.1f%n", result);
+                    break;
+                case 3:
+                    result = value * 60;
+                    System.out.printf("Minutes to Seconds: %.1f%n", result);
+                    break;
+                case 4:
+                    result = value / 60;
+                    System.out.printf("Minutes to Hours: %.1f%n", result);
+                    break;
+                case 5:
+                    result = value * 3600;
+                    System.out.printf("Hours to Seconds: %.1f%n", result);
+                    break;
+                case 6:
+                    result = value * 60;
+                    System.out.printf("Hours to Minutes: %.1f%n", result);
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+
+            System.out.print("Do you want to convert time? (Y/N): ");
+            char continueChoice = scanner.next().charAt(0);
+            continueConversion = (continueChoice == 'Y' || continueChoice == 'y');
+        }
+
+        scanner.close();
+    }
+}
