@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Clock clock = new Clock();
+        boolean continueConversion = true;
+
+        while (continueConversion) {
+            // Display the conversion options
+            System.out.println("It must have the following methods inside the Clock class for the conversion.");
+            System.out.println("[1] SecondstoMinutes");
+            System.out.println("[2] SecondstoHours");
+            System.out.println("[3] MinutestoSeconds");
+            System.out.println("[4] MinutestoHours");
+            System.out.println("[5] HourstoSeconds");
+            System.out.println("[6] HourstoMinutes");
+
+            // Get the user's conversion choice
+            System.out.print("Choose the conversion: ");
+            int choice = scanner.nextInt();
+
+            // Get the value for the conversion
+            System.out.print("Enter value: ");
+            int value = scanner.nextInt();
+
+            // Perform the conversion based on the choice
+            switch (choice) {
+                case 1:
+                    System.out.println("Seconds to minutes: " + clock.SecondstoMinutes(value));
+                    break;
+                case 2:
+                    System.out.println("Seconds to hours: " + clock.SecondstoHours(value));
+                    break;
+                case 3:
+                    System.out.println("Minutes to seconds: " + clock.MinutestoSeconds(value));
+                    break;
+                case 4:
+                    System.out.println("Minutes to hours: " + clock.MinutestoHours(value));
+                    break;
+                case 5:
+                    System.out.println("Hours to seconds: " + clock.HourstoSeconds(value));
+                    break;
+                case 6:
+                    System.out.println("Hours to minutes: " + clock.HourstoMinutes(value));
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+
+            // Ask if the user wants to continue converting
+            System.out.print("Do you want to convert time: y/n ");
+            char continueResponse = scanner.next().charAt(0);
+
+            if (continueResponse == 'n' || continueResponse == 'N') {
+                continueConversion = false;
+            }
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
